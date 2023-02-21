@@ -30,7 +30,7 @@ jobs:
       with:
         azcliversion: 2.45.0
         inlineScript: |
-            az storage blob upload-batch --account-name craazstoragedemo48765 -d '$web' -s ./production-files
+            az storage blob upload-batch --account-name ymstore -d '$web' -s ./production-files
     
     - name: Azure logout
       run: |
