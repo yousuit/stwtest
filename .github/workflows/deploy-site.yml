@@ -24,14 +24,9 @@ jobs:
       uses: azure/login@v1
       with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-    
-    - name: Upload to Azure blob storage
-      uses: azure/CLI@v1
+            
+    - uses: fixpoint/azblob-upload-artifact@v4
       with:
-        azcliversion: 2.45.0
-        inlineScript: |
-            az storage blob upload-batch --account-name ymstore -d '$web' -s ./production-files
-    
-    - name: Azure logout
-      run: |
-            az logout
+        connection-string: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+        name: ./production-files
+        path: $web
