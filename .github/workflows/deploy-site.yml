@@ -28,7 +28,7 @@ jobs:
     - name: Upload to Azure blob storage
       uses: azure/CLI@v1
       with:
-        azcliversion: 2.0.72
+        azcliversion: 2.45
         inlineScript: |
             az storage blob upload-batch --account-name craazstoragedemo48765 -d '$web' -s ./production-files
     
